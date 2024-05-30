@@ -19,7 +19,7 @@ finish-args:
   # Uses legacy StatusNotifier implementation
   - --own-name=org.kde.*
   # Files
-  - --filesystem=xdg-download
+  - --filesystem=home
   - --persist=.xwechat
   - --persist=xwechat_files
   # Hidpi scale
