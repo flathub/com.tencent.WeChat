@@ -76,7 +76,7 @@ modules:
     sources:
       - type: script
         commands:
-          - bsdtar --to-stdout -xf wechat.deb data.* | bsdtar -xf -
+          - bsdtar --to-stdout -xf wechat.deb data.* | bsdtar --no-same-owner -xf -
           - mv opt/wechat-beta wechat
           - mv usr/lib/libactivation.so wechat/
           - rm -rf wechat.deb usr opt
