@@ -7,5 +7,5 @@ Type=Application
 Icon=com.tencent.WeChat
 StartupWMClass=WeChat
 Categories=Network;
-Comment=WeChat
-Comment[zh_CN]=微信，是一个生活方式
+Comment=WeChat Universal
+Comment[zh_CN]=微信桌面版
