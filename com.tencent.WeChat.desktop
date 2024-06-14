@@ -1,9 +1,11 @@
 [Desktop Entry]
 Name=WeChat
+Name[zh_CN]=微信
 Exec=wechat %U
 Terminal=false
 Type=Application
 Icon=com.tencent.WeChat
 StartupWMClass=WeChat
 Categories=Network;
-Comment=WeChat
+Comment=WeChat Universal
+Comment[zh_CN]=微信桌面版
