@@ -45,15 +45,50 @@ modules:
   - name: bzip2
     no-autogen: true
     make-args:
-       - --f=Makefile-libbz2_so
+      - --f=Makefile-libbz2_so
     no-make-install: true
     post-install:
-       - install -Dm644 libbz2.so.1.0.8 -t ${FLATPAK_DEST}/lib/
-       - ln -s ${FLATPAK_DEST}/lib/libbz2.so.1.0.8 ${FLATPAK_DEST}/lib/libbz2.so.1.0
+      - install -Dm644 libbz2.so.1.0.8 -t ${FLATPAK_DEST}/lib/
+      - ln -s ${FLATPAK_DEST}/lib/libbz2.so.1.0.8 ${FLATPAK_DEST}/lib/libbz2.so.1.0
     sources:
       - type: archive
         url: https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz
         sha256: ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269
+
+  # libldevice is LGPL-3+ license
+  - name: libldevice
+    buildsystem: simple
+    build-commands:
+      - bsdtar --no-same-owner -xf libldevice.rpm usr/lib64/libldevice.so.0
+      - install -Dm755 usr/lib64/libldevice.so.0 -t ${FLATPAK_DEST}/lib/
+      - ln -s ${FLATPAK_DEST}/lib/libldevice.so.0 ${FLATPAK_DEST}/lib/libsystemactivation.so
+    sources:
+      - type: file
+        dest-filename: libldevice.rpm
+        only-arches: [x86_64]
+        url: https://mirrors.opencloudos.tech/opencloudos/9.2/extras/x86_64/os/Packages/libldevice-0.2.1-1.oc9.x86_64.rpm
+        sha256: 047fad818c978ed5a47c2926e61f89d22ee7721bae1b90f45c3225036d3c6353
+        x-checker-data:
+          type: rpm-repo
+          package-name: libldevice
+          root: https://mirrors.opencloudos.tech/opencloudos/9.2/extras/x86_64/os/
+          is-main-source: true
+
+  - name: opencloudos-release
+    buildsystem: simple
+    build-commands:
+      - bsdtar --no-same-owner -xf opencloudos-release.rpm usr/lib/os-release
+      - install -Dm644 usr/lib/os-release -t ${FLATPAK_DEST}/lib/
+    sources:
+      - type: file
+        dest-filename: opencloudos-release.rpm
+        url: https://mirrors.opencloudos.tech/opencloudos/9.2/BaseOS/x86_64/os/Packages/opencloudos-release-9.2-1.oc9.noarch.rpm
+        sha256: ad0c8bb6c9847d1e2db477d62f109f00ae8d9bf5aa834aaa955e19552fa09731
+        x-checker-data:
+          type: rpm-repo
+          package-name: opencloudos-release
+          root: https://mirrors.opencloudos.tech/opencloudos/9.2/extras/x86_64/os/
+          is-main-source: true
 
   - name: libredirect
     buildsystem: simple
@@ -76,10 +111,9 @@ modules:
     sources:
       - type: script
         commands:
-          - bsdtar --to-stdout -xf wechat.deb data.* | bsdtar --no-same-owner -xf -
+          - bsdtar --no-same-owner -xf wechat.rpm opt
           - mv opt/wechat-beta wechat
-          - mv usr/lib/libactivation.so wechat/
-          - rm -rf wechat.deb usr opt
+          - rm -rf wechat.rpm opt
         dest-filename: apply_extra
 
       - type: file
@@ -98,15 +132,14 @@ modules:
         path: com.tencent.WeChat.desktop
 
       - type: extra-data
-        filename: wechat.deb
+        filename: wechat.rpm
         only-arches: [x86_64]
-        url: https://archive2.kylinos.cn/deb/kylin/production/PART-openKylin/custom/partner/openKylin/pool/all/wechat-beta_1.0.0.238_amd64.deb
-        sha256: 912cfd30641ef376a680b05c6bdcb70cb3f154cb9eb6d0d3a57d23befe23b99c
-        size: 116767436
+        url: https://mirrors.opencloudos.tech/opencloudos/9.2/extras/x86_64/os/Packages/wechat-beta_1.0.0.242_amd64.rpm
+        sha256: ff97d711f3c71cbe86ef93e1d04a681af5c3e95e0188f4b411064ced2819d719
+        size: 154623531
 
         x-checker-data:
-          type: debian-repo
+          type: rpm-repo
           package-name: wechat-beta
-          root: https://archive2.kylinos.cn/deb/kylin/production/PART-openKylin/custom/partner/openKylin
-          dist: default
-          component: all
+          root: https://mirrors.opencloudos.tech/opencloudos/9.2/extras/x86_64/os/
+          is-main-source: true
