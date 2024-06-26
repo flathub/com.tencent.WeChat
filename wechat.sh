@@ -12,5 +12,10 @@ setup_ime_env() {
 
 setup_ime_env
 
+if [[ ! -e ".xwechat/uuid" ]]; then
+  mkdir -p .xwechat
+  cat /proc/sys/kernel/random/uuid > .xwechat/uuid
+fi
+
 export LD_PRELOAD=/app/lib/libredirect.so
 exec /app/extra/wechat/wechat "$@"
