@@ -100,13 +100,13 @@ modules:
       - type: extra-data
         filename: wechat.deb
         only-arches: [x86_64]
-        url: https://software.openkylin.top/openkylin/yangtze/pool/all/wechat-beta_1.0.0.238_amd64.deb
-        sha256: 912cfd30641ef376a680b05c6bdcb70cb3f154cb9eb6d0d3a57d23befe23b99c
-        size: 116767436
+        url: https://software.openkylin.top/openkylin/pool/main/deb/wechat-beta/wechat-beta_1.0.0.241_amd64.deb
+        sha256: b8c3a42bda6165d6429b10c47a16d303bea279421a1c93c7eadffa6e5f98ff2e
+        size: 116936238
 
         x-checker-data:
           type: debian-repo
           package-name: wechat-beta
-          root: https://software.openkylin.top/openkylin/yangtze/
-          dist: default
-          component: all
+          root: https://software.openkylin.top/openkylin/
+          dist: nile
+          component: main
