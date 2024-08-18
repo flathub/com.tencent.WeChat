@@ -33,14 +33,18 @@ modules:
     build-commands:
       - install -pDm644 "local.conf" -t "/app/etc/fonts/";
       - install -pDm644 "70-noto-cjk.conf" -t "/app/etc/fonts/conf.d/";
+      - install -pDm644 "75-noto-color-emoji.conf" -t "/app/etc/fonts/conf.d/";
       # `||:` return a successful exit status
       - fc-cache -fsv ||:;
     sources:
       - type: file
+        path: patch/local.conf
+      - type: file
         url: https://gitlab.archlinux.org/archlinux/packaging/packages/noto-fonts-cjk/-/raw/5fd3534bf7a6e26c7506dc8f40dcd89f37d35627/70-noto-cjk.conf
         sha256: 2417ac0e6720fe8da55ee59f16e36cfe96737bc21432460a322bb0f395e3a521
       - type: file
-        path: patch/local.conf
+        url: https://aur.archlinux.org/cgit/aur.git/plain/75-noto-color-emoji.conf?h=noto-color-emoji-fontconfig&id=9bfcd37bf18de08171360ad6f69373b7b4b63aec
+        sha256: 9b7d8e078e0f88582afc8f19cd7d928a6bd2b2f418321d1011d4d6f903056942
 
   - name: bzip2
     no-autogen: true
