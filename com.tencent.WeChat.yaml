@@ -47,17 +47,11 @@ modules:
         sha256: 9b7d8e078e0f88582afc8f19cd7d928a6bd2b2f418321d1011d4d6f903056942
 
   - name: bzip2
-    no-autogen: true
-    make-args:
-       - --f=Makefile-libbz2_so
-    no-make-install: true
-    post-install:
-       - install -Dm644 libbz2.so.1.0.8 -t ${FLATPAK_DEST}/lib/
-       - ln -s ${FLATPAK_DEST}/lib/libbz2.so.1.0.8 ${FLATPAK_DEST}/lib/libbz2.so.1.0
-    sources:
-      - type: archive
-        url: https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz
-        sha256: ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269
+    buildsystem: simple
+    build-commands:
+      - ls -l /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.8
+      - mkdir -p ${FLATPAK_DEST}/lib/
+      - ln -s /usr/lib/x86_64-linux-gnu/libbz2.so.1.0.8 ${FLATPAK_DEST}/lib/libbz2.so.1.0
 
   - name: libredirect
     buildsystem: simple
