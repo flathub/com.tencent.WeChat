@@ -2,6 +2,7 @@
 <component type="desktop-application">
   <id>com.tencent.WeChat</id>
   <name>WeChat</name>
+  <name xml:lang="zh-Hans">微信</name>
   <project_license>LicenseRef-proprietary=https://www.wechat.com/en/service_terms.html</project_license>
   <developer_name>Tencent</developer_name>
   <summary>Free messaging and calling app</summary>
