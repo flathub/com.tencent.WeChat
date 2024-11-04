@@ -12,5 +12,4 @@ setup_ime_env() {
 
 setup_ime_env
 
-export LD_PRELOAD=/app/lib/libredirect.so
 exec /app/extra/wechat/wechat "$@"
