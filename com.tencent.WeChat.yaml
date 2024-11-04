@@ -49,11 +49,11 @@ modules:
   - name: bzip2
     no-autogen: true
     make-args:
-       - --f=Makefile-libbz2_so
+      - --f=Makefile-libbz2_so
     no-make-install: true
     post-install:
-       - install -Dm644 libbz2.so.1.0.8 -t ${FLATPAK_DEST}/lib/
-       - ln -s ${FLATPAK_DEST}/lib/libbz2.so.1.0.8 ${FLATPAK_DEST}/lib/libbz2.so.1.0
+      - install -Dm644 libbz2.so.1.0.8 -t ${FLATPAK_DEST}/lib/
+      - ln -s ${FLATPAK_DEST}/lib/libbz2.so.1.0.8 ${FLATPAK_DEST}/lib/libbz2.so.1.0
     sources:
       - type: archive
         url: https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz
@@ -80,7 +80,8 @@ modules:
     sources:
       - type: script
         commands:
-          - bsdtar --to-stdout -xf wechat.deb data.* | bsdtar --no-same-owner -xf -
+          - bsdtar --to-stdout -xf wechat.deb data.* | bsdtar --no-same-owner -xf
+            -
           - mv opt/wechat-beta wechat
           - mv usr/lib/libactivation.so wechat/
           - rm -rf wechat.deb usr opt
@@ -104,9 +105,9 @@ modules:
       - type: extra-data
         filename: wechat.deb
         only-arches: [x86_64]
-        url: https://software.openkylin.top/openkylin/pool/main/deb/wechat-beta/wechat-beta_1.0.0.241_amd64.deb
-        sha256: b8c3a42bda6165d6429b10c47a16d303bea279421a1c93c7eadffa6e5f98ff2e
-        size: 116936238
+        url: https://software.openkylin.top/openkylin/pool/main/deb/wechat/wechat-beta_4.0.0.21_amd64.deb
+        sha256: b74b57c906a3db3323d2b901e48fa978d35256381d22a868acdf087d8fbdba43
+        size: 228683804
 
         x-checker-data:
           type: debian-repo
