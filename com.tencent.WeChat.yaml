@@ -71,9 +71,8 @@ modules:
     sources:
       - type: script
         commands:
-          - bsdtar --to-stdout -xf wechat.deb data.* | bsdtar --no-same-owner -xf -
-          - mv opt/wechat-beta wechat
-          - mv usr/lib/libactivation.so wechat/
+          - bsdtar -O -xf wechat.deb data.* | bsdtar --no-same-owner -xf -
+          - mv opt/wechat wechat
           - rm -rf wechat.deb usr opt
         dest-filename: apply_extra
 
@@ -95,13 +94,6 @@ modules:
       - type: extra-data
         filename: wechat.deb
         only-arches: [x86_64]
-        url: https://software.openkylin.top/openkylin/pool/main/deb/wechat/wechat-beta_4.0.0.21_amd64.deb
-        sha256: b74b57c906a3db3323d2b901e48fa978d35256381d22a868acdf087d8fbdba43
-        size: 228683804
-
-        x-checker-data:
-          type: debian-repo
-          package-name: wechat-beta
-          root: https://software.openkylin.top/openkylin/
-          dist: nile
-          component: main
+        url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb
+        sha256: 0e2834310e1d321da841a4cde9c657d9c086c5ee8c82d09e47eab53629a5038f
+        size: 203260252
