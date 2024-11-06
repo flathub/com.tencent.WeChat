@@ -8,7 +8,7 @@
   <summary>Free messaging and calling app</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <launchable type="desktop-id">com.tencent.WeChat.desktop</launchable>
-  <url type="homepage">https://www.wechat.com</url>
+  <url type="homepage">https://linux.weixin.qq.com/</url>
   <url type="help">http://help.wechat.com</url>
   <description>
     <p>WeChat (Chinese: 微信), is a messaging and calling app developed by the Chinese technology company Tencent.</p>
@@ -29,6 +29,7 @@
     <category>Network</category>
   </categories>
   <releases>
+    <release version="4.0.0.30" date="2024-11-06" />
     <release version="4.0.0.21" date="2024-11-04">
       <url>https://www.deepin.org/zh/wechat-4-0/</url>
     </release>
