@@ -1,6 +1,7 @@
 {
   "automerge-flathubbot-prs": false,
   "only-arches": [
+    "aarch64",
     "x86_64"
   ]
 }

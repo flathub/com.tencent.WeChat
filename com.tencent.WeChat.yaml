@@ -46,6 +46,15 @@ modules:
         url: https://aur.archlinux.org/cgit/aur.git/plain/75-noto-color-emoji.conf?h=noto-color-emoji-fontconfig&id=9bfcd37bf18de08171360ad6f69373b7b4b63aec
         sha256: 9b7d8e078e0f88582afc8f19cd7d928a6bd2b2f418321d1011d4d6f903056942
 
+  # Need libtiff.so.5
+  - name: tiff
+    only-arches: [aarch64]
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://download.osgeo.org/libtiff/tiff-4.4.0.tar.gz
+        sha256: 917223b37538959aca3b790d2d73aa6e626b688e02dcda272aec24c2f498abed
+
   - name: wechat
     buildsystem: simple
     build-commands:
@@ -84,3 +93,10 @@ modules:
         url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb
         sha256: 88ea106a68fac96bc17c4209f856f45fa13e105625dc49cf8644d1b2d882f7a9
         size: 208558276
+
+      - type: extra-data
+        filename: wechat.deb
+        only-arches: [aarch64]
+        url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb
+        sha256: 6758c8b1f9a42c2dbd5a96332139ace2cf999ec1bc00994adac880559a9f997f
+        size: 182438776
