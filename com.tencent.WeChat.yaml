@@ -46,19 +46,6 @@ modules:
         url: https://aur.archlinux.org/cgit/aur.git/plain/75-noto-color-emoji.conf?h=noto-color-emoji-fontconfig&id=9bfcd37bf18de08171360ad6f69373b7b4b63aec
         sha256: 9b7d8e078e0f88582afc8f19cd7d928a6bd2b2f418321d1011d4d6f903056942
 
-  - name: bzip2
-    no-autogen: true
-    make-args:
-       - --f=Makefile-libbz2_so
-    no-make-install: true
-    post-install:
-       - install -Dm644 libbz2.so.1.0.8 -t ${FLATPAK_DEST}/lib/
-       - ln -s ${FLATPAK_DEST}/lib/libbz2.so.1.0.8 ${FLATPAK_DEST}/lib/libbz2.so.1.0
-    sources:
-      - type: archive
-        url: https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz
-        sha256: ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269
-
   - name: wechat
     buildsystem: simple
     build-commands:
@@ -94,6 +81,6 @@ modules:
       - type: extra-data
         filename: wechat.deb
         only-arches: [x86_64]
-        url: https://web.archive.org/web/20241107205050if_/https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb
-        sha256: 0e2834310e1d321da841a4cde9c657d9c086c5ee8c82d09e47eab53629a5038f
-        size: 203260252
+        url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb
+        sha256: 88ea106a68fac96bc17c4209f856f45fa13e105625dc49cf8644d1b2d882f7a9
+        size: 208558276
