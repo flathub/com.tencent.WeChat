@@ -12,4 +12,6 @@ setup_ime_env() {
 
 setup_ime_env
 
+ulimit -c 0
+
 exec /app/extra/wechat/wechat "$@"
