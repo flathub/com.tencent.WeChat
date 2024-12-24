@@ -91,12 +91,12 @@ modules:
         filename: wechat.deb
         only-arches: [x86_64]
         url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb
-        sha256: 88ea106a68fac96bc17c4209f856f45fa13e105625dc49cf8644d1b2d882f7a9
-        size: 208558276
+        sha256: 16410e0ca7895e5aa375282de5e48b2d5fcb958b063de6b2dcfd02bed190cc01
+        size: 208373096
 
       - type: extra-data
         filename: wechat.deb
         only-arches: [aarch64]
         url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb
-        sha256: 6758c8b1f9a42c2dbd5a96332139ace2cf999ec1bc00994adac880559a9f997f
-        size: 182438776
+        sha256: 59805ad7335de5ebb1fd5748d19b2f39761a085a45be30906810756d066277bc
+        size: 182288252
