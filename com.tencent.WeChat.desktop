@@ -7,5 +7,6 @@ Type=Application
 Icon=com.tencent.WeChat
 StartupWMClass=WeChat
 Categories=Network;
+Keywords=wechat;weixin;
 Comment=WeChat Desktop
 Comment[zh_CN]=微信桌面版
