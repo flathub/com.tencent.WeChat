@@ -46,14 +46,13 @@ modules:
         url: https://aur.archlinux.org/cgit/aur.git/plain/75-noto-color-emoji.conf?h=noto-color-emoji-fontconfig&id=9bfcd37bf18de08171360ad6f69373b7b4b63aec
         sha256: 9b7d8e078e0f88582afc8f19cd7d928a6bd2b2f418321d1011d4d6f903056942
 
-  # Need libtiff.so.5
-  - name: tiff
-    only-arches: [aarch64]
-    buildsystem: cmake-ninja
+  # Need libgssapi_krb5.so.2
+  - name: kerberos
+    subdir: src
     sources:
       - type: archive
-        url: https://download.osgeo.org/libtiff/tiff-4.4.0.tar.gz
-        sha256: 917223b37538959aca3b790d2d73aa6e626b688e02dcda272aec24c2f498abed
+        url: https://kerberos.org/dist/krb5/1.22/krb5-1.22.1.tar.gz
+        sha256: 1a8832b8cad923ebbf1394f67e2efcf41e3a49f460285a66e35adec8fa0053af
 
   # Remove execstack from shared libraries
   - name: patchelf
@@ -79,7 +78,7 @@ modules:
           - bsdtar -O -xf wechat.deb data.* | bsdtar --no-same-owner -xf -
           - mv opt/wechat wechat
           - rm -rf wechat.deb usr opt
-          - patchelf --clear-execstack wechat/libandromeda.so wechat/libowl.so wechat/libvoipCodec.so
+          - patchelf --clear-execstack wechat/libowl.so wechat/libvoipCodec.so wechat/libWxH264.so
         dest-filename: apply_extra
 
       - type: file
@@ -101,12 +100,12 @@ modules:
         filename: wechat.deb
         only-arches: [x86_64]
         url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb
-        sha256: 16410e0ca7895e5aa375282de5e48b2d5fcb958b063de6b2dcfd02bed190cc01
-        size: 208373096
+        sha256: 869a8156318e2275237c280a637cb86ce7bd427ddb95864699b21c7f3ce64a29
+        size: 221182460
 
       - type: extra-data
         filename: wechat.deb
         only-arches: [aarch64]
         url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb
-        sha256: 59805ad7335de5ebb1fd5748d19b2f39761a085a45be30906810756d066277bc
-        size: 182288252
+        sha256: 32f4116a6964f570ba2441046a9094fb5b726398bead4e91fedee52a5215b351
+        size: 196015840
