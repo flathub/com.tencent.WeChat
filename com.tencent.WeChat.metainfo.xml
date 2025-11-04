@@ -11,8 +11,8 @@
   <url type="homepage">https://linux.weixin.qq.com</url>
   <url type="help">http://help.wechat.com</url>
   <description>
+    <p>**NOTE: This wrapper is not verified by, affiliated with, or supported by Tencent.**</p>
     <p>WeChat (Chinese: 微信), is a messaging and calling app developed by the Chinese technology company Tencent.</p>
-    <p>NOTE: This wrapper is not verified by, affiliated with, or supported by Tencent.</p>
   </description>
   <screenshots>
     <screenshot type="default">
