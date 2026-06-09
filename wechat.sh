@@ -12,8 +12,6 @@ setup_ime_env() {
 
 setup_ime_env
 
-export LC_NUMERIC=C
-
 ulimit -c 0
 
 exec /app/extra/wechat/wechat "$@"
