@@ -26,19 +26,21 @@ finish-args:
   - --env=QT_AUTO_SCREEN_SCALE_FACTOR=1
   # Only supports xcb
   - --env=QT_QPA_PLATFORM=xcb
+  # Fix broken UI on non-english locales
+  - --env=LC_NUMERIC=C
 
 modules:
   - name: fontconfig
     buildsystem: simple
     build-commands:
-      - install -pDm644 "local.conf" -t "/app/etc/fonts/";
+      - install -pDm644 "fonts.conf" "/app/etc/fonts/local.conf";
       - install -pDm644 "70-noto-cjk.conf" -t "/app/etc/fonts/conf.d/";
       - install -pDm644 "75-noto-color-emoji.conf" -t "/app/etc/fonts/conf.d/";
       # `||:` return a successful exit status
       - fc-cache -fsv ||:;
     sources:
       - type: file
-        path: patch/local.conf
+        path: fonts.conf
       - type: file
         url: https://gitlab.archlinux.org/archlinux/packaging/packages/noto-fonts-cjk/-/raw/5fd3534bf7a6e26c7506dc8f40dcd89f37d35627/70-noto-cjk.conf
         sha256: 2417ac0e6720fe8da55ee59f16e36cfe96737bc21432460a322bb0f395e3a521
@@ -100,12 +102,12 @@ modules:
         filename: wechat.deb
         only-arches: [x86_64]
         url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb
-        sha256: ce6a5c201839383d6ab0198c026ecec274bd62803044aec61fdca20e02c797e2
-        size: 212327560
+        sha256: af28ffa501d6eb1db769eeaf895b10fedcd4bf4ee7764a22d5b3af50e53f5be5
+        size: 212391880
 
       - type: extra-data
         filename: wechat.deb
         only-arches: [aarch64]
         url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb
-        sha256: 5deb709bcb94bf368eb39d01934cc8456b3fd811d39b45e061c7348ddd8c05a4
-        size: 189655840
+        sha256: 2870123ee5e0202711210d82e3435f0a4712ca593eb0480f6d9db4589a288810
+        size: 189791016

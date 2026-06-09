@@ -9,7 +9,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <launchable type="desktop-id">com.tencent.WeChat.desktop</launchable>
   <url type="homepage">https://linux.weixin.qq.com</url>
-  <url type="help">http://help.wechat.com</url>
+  <url type="help">https://kf.qq.com/product/weixin.html</url>
   <description>
     <p>**NOTE: This wrapper is not verified by, affiliated with, or supported by Tencent.**</p>
     <p>WeChat (Chinese: 微信), is a messaging and calling app developed by the Chinese technology company Tencent.</p>
@@ -29,6 +29,7 @@
     <category>Network</category>
   </categories>
   <releases>
+    <release version="4.1.1.7" date="2026-06-09" />
     <release version="4.1.1.4" date="2026-03-10">
       <url>https://weixin.qq.com/updates/linux/411</url>
     </release>
@@ -45,7 +46,7 @@
     </release>
     <release version="1.0.0.241" date="2024-07-15" />
     <release version="1.0.0.238" date="2024-03-14">
-      <url>https://www.kylinos.cn/about/news/1919.html</url>
+      <url>https://web.archive.org/web/20250624154840/https://www.kylinos.cn/about/news/1919.html</url>
     </release>
   </releases>
   <content_rating type="oars-1.1">
