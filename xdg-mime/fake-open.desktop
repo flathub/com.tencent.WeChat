@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Fake Open
+Type=Application
+Exec=fake-open %f
+NoDisplay=true

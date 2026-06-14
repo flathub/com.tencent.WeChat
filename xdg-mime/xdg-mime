@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [ "$1" = "query" ] && [ "$2" = "default" ]; then
+    echo "fake-open.desktop"
+    exit 0
+fi

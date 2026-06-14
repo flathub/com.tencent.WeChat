@@ -65,6 +65,24 @@ modules:
     cleanup:
       - /share
 
+  - name: xdg-mime
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 xdg-mime $FLATPAK_DEST/bin/xdg-mime
+      - install -Dm755 fake-open.sh $FLATPAK_DEST/bin/fake-open
+      - install -Dm644 fake-open.desktop $FLATPAK_DEST/share/applications/fake-open.desktop
+      - gcc -shared -fPIC -o path-redirect.so path-redirect.c -ldl
+      - install -Dm755 path-redirect.so $FLATPAK_DEST/lib/path-redirect.so
+    sources:
+      - type: file
+        path: xdg-mime/xdg-mime
+      - type: file
+        path: xdg-mime/fake-open.sh
+      - type: file
+        path: xdg-mime/fake-open.desktop
+      - type: file
+        path: xdg-mime/path-redirect.c
+
   - name: wechat
     buildsystem: simple
     build-commands:

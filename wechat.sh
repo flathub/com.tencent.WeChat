@@ -14,4 +14,6 @@ setup_ime_env
 
 ulimit -c 0
 
+export LD_PRELOAD=/app/lib/path-redirect.so
+
 exec /app/extra/wechat/wechat "$@"
