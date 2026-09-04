@@ -56,6 +56,20 @@ modules:
         url: https://kerberos.org/dist/krb5/1.22/krb5-1.22.1.tar.gz
         sha256: 1a8832b8cad923ebbf1394f67e2efcf41e3a49f460285a66e35adec8fa0053af
 
+  # Need libbz2.so by wxutility
+  - name: bzip2
+    no-autogen: true
+    make-args:
+       - --f=Makefile-libbz2_so
+    no-make-install: true
+    post-install:
+       - install -Dm644 libbz2.so.1.0.8 -t ${FLATPAK_DEST}/lib/
+       - ln -s ${FLATPAK_DEST}/lib/libbz2.so.1.0.8 ${FLATPAK_DEST}/lib/libbz2.so.1.0
+    sources:
+      - type: archive
+        url: https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz
+        sha256: ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269
+
   # Remove execstack from shared libraries
   - name: patchelf
     sources:
