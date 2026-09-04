@@ -19,7 +19,6 @@ finish-args:
   # Uses legacy StatusNotifier implementation
   - --own-name=org.kde.*
   # Files
-  - --filesystem=xdg-download:ro
   - --persist=.xwechat
   - --persist=xwechat_files
   # Hidpi scale
@@ -55,6 +54,20 @@ modules:
       - type: archive
         url: https://kerberos.org/dist/krb5/1.22/krb5-1.22.1.tar.gz
         sha256: 1a8832b8cad923ebbf1394f67e2efcf41e3a49f460285a66e35adec8fa0053af
+
+  # Need libbz2.so by wxutility
+  - name: bzip2
+    no-autogen: true
+    make-args:
+       - --f=Makefile-libbz2_so
+    no-make-install: true
+    post-install:
+       - install -Dm644 libbz2.so.1.0.8 -t ${FLATPAK_DEST}/lib/
+       - ln -s ${FLATPAK_DEST}/lib/libbz2.so.1.0.8 ${FLATPAK_DEST}/lib/libbz2.so.1.0
+    sources:
+      - type: archive
+        url: https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz
+        sha256: ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269
 
   # Remove execstack from shared libraries
   - name: patchelf
@@ -102,12 +115,12 @@ modules:
         filename: wechat.deb
         only-arches: [x86_64]
         url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb
-        sha256: c9765e87ee5133bf4bb50d585c1814fafd995e3fb0da62c5ed07259b43dada7b
-        size: 212419528
+        sha256: 096865e050ba0d3c1a23887227e2400bf343037b1d7d658c84c88ff26bfdc17f
+        size: 226602424
 
       - type: extra-data
         filename: wechat.deb
         only-arches: [aarch64]
         url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb
-        sha256: c3ed1a481247e6a1b166e87a66cccdee898c3ae0b76613b39bb6e9795e50929f
-        size: 189772256
+        sha256: a6d115d24dfe3ed1b7e7de16cf6cc02acef8df5668150f702ac8d8c5256405fa
+        size: 209059272

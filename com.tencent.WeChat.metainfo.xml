@@ -28,6 +28,9 @@
     <category>Network</category>
   </categories>
   <releases>
+    <release version="4.1.13.9" date="2026-09-04">
+      <url>https://weixin.qq.com/updates/linux/4113</url>
+    </release>
     <release version="4.1.1.8" date="2026-07-10" />
     <release version="4.1.1.7" date="2026-06-09" />
     <release version="4.1.1.4" date="2026-03-10">
