@@ -8,8 +8,7 @@ separate-locales: false
 finish-args:
   - --share=ipc
   - --share=network
-  - --socket=wayland
-  - --socket=fallback-x11
+  - --socket=x11
   - --socket=pulseaudio
   - --device=all
   # File Manager
@@ -24,6 +23,8 @@ finish-args:
   - --persist=xwechat_files
   # Hidpi scale
   - --env=QT_AUTO_SCREEN_SCALE_FACTOR=1
+  # Only supports xcb
+  - --env=QT_QPA_PLATFORM=xcb
   # Fix broken UI on non-english locales
   - --env=LC_NUMERIC=C
 
