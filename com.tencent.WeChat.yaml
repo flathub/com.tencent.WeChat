@@ -8,8 +8,10 @@ separate-locales: false
 finish-args:
   - --share=ipc
   - --share=network
+  # wechat can run on wayland
   - --socket=wayland
-  - --socket=fallback-x11
+  # WeChatAppEx only works on x11
+  - --socket=x11
   - --socket=pulseaudio
   - --device=all
   # File Manager
