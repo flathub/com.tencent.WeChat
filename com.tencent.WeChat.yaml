@@ -11,8 +11,6 @@ finish-args:
   - --socket=x11
   - --socket=pulseaudio
   - --device=all
-  # File Manager
-  - --talk-name=org.freedesktop.FileManager1
   # System tray icon
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
