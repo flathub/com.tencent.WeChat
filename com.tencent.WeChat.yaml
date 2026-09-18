@@ -55,11 +55,11 @@ modules:
   - name: bzip2
     no-autogen: true
     make-args:
-       - --f=Makefile-libbz2_so
+      - --f=Makefile-libbz2_so
     no-make-install: true
     post-install:
-       - install -Dm644 libbz2.so.1.0.8 -t ${FLATPAK_DEST}/lib/
-       - ln -s ${FLATPAK_DEST}/lib/libbz2.so.1.0.8 ${FLATPAK_DEST}/lib/libbz2.so.1.0
+      - install -Dm644 libbz2.so.1.0.8 -t ${FLATPAK_DEST}/lib/
+      - ln -s ${FLATPAK_DEST}/lib/libbz2.so.1.0.8 ${FLATPAK_DEST}/lib/libbz2.so.1.0
     sources:
       - type: archive
         url: https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz
@@ -111,12 +111,12 @@ modules:
         filename: wechat.deb
         only-arches: [x86_64]
         url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb
-        sha256: 096865e050ba0d3c1a23887227e2400bf343037b1d7d658c84c88ff26bfdc17f
-        size: 226602424
+        sha256: b7d0f8d53e9f648bc2c77a6096a04100d008f2d9f0d3988a2a4859b5992aca0a
+        size: 231359624
 
       - type: extra-data
         filename: wechat.deb
         only-arches: [aarch64]
         url: https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb
-        sha256: a6d115d24dfe3ed1b7e7de16cf6cc02acef8df5668150f702ac8d8c5256405fa
-        size: 209059272
+        sha256: 51784a262c725ef1595dd833f456190e913583dd81c24dd8fe587532bc91c0dc
+        size: 211550900
