@@ -1,0 +1,10 @@
+{
+  "name": "fontconfig-nohost-cache",
+  "buildsystem": "simple",
+  "build-commands": [
+    "install -d /app/etc/fonts/runtime-conf.d",
+    "cp -aL /etc/fonts/conf.d/. /app/etc/fonts/runtime-conf.d/",
+    "sed -i 's#<cachedir[^>]*>/run/host/[^<]*</cachedir>##g' /app/etc/fonts/runtime-conf.d/*.conf",
+    "sed 's#<include[^>]*>[^<]*conf\\.d</include>#<include ignore_missing=\"yes\">/app/etc/fonts/runtime-conf.d</include>#' /etc/fonts/fonts.conf > /app/etc/fonts/fonts.conf"
+  ]
+}

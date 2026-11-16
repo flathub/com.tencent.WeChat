@@ -24,8 +24,10 @@ finish-args:
   - --env=QT_AUTO_SCREEN_SCALE_FACTOR=1
   # Fix broken UI on non-english locales
   - --env=LC_NUMERIC=C
+  - --env=FONTCONFIG_FILE=/app/etc/fonts/fonts.conf
 
 modules:
+  - fc-nohost-cache.json
   - name: fontconfig
     buildsystem: simple
     build-commands:
