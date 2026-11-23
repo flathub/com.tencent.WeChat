@@ -51,6 +51,7 @@ modules:
     build-commands:
       - install -Dm755 apply_extra -t $FLATPAK_DEST/bin/
       - install -Dm755 wechat.sh $FLATPAK_DEST/bin/wechat
+      - install -Dm755 wechat-appex.sh $FLATPAK_DEST/bin/wechat-appex
       - install -Dm755 dde-file-manager.sh $FLATPAK_DEST/bin/dde-file-manager
       - install -Dm644 com.tencent.WeChat.metainfo.xml -t $FLATPAK_DEST/share/metainfo
       - install -Dm644 com.tencent.WeChat.png -t $FLATPAK_DEST/share/icons/hicolor/256x256/apps
@@ -61,10 +62,15 @@ modules:
           - bsdtar -O -xf wechat.deb data.* | bsdtar --no-same-owner -xf -
           - mv opt/wechat wechat
           - rm -rf wechat.deb usr opt
+          - mv wechat/RadiumWMPF/runtime/WeChatAppEx wechat/RadiumWMPF/runtime/WeChatAppEx.bin
+          - ln -sf /app/bin/wechat-appex wechat/RadiumWMPF/runtime/WeChatAppEx
         dest-filename: apply_extra
 
       - type: file
         path: wechat.sh
+
+      - type: file
+        path: wechat-appex.sh
 
       - type: file
         path: dde-file-manager.sh
